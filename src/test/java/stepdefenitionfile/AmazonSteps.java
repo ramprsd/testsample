@@ -10,12 +10,15 @@ import pageobjects.AmazonHomePage;
 import pageobjects.AmazonSignInPage;
 import reusable.BaseCode;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
+
 
 public class AmazonSteps{
 
 
     @Given("user should navigate to URL")
-    public void launchUrl(){
+    public void launchUrl() throws IOException {
         BaseCode.browserInvocation();
         
     }
@@ -30,7 +33,6 @@ public class AmazonSteps{
     @Then("user gets the valid results")
     public void validateResults() {
 
-        String expectedResult = ""
 
     }
 

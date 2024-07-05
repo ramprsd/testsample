@@ -4,18 +4,16 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import org.junit.Assert;+
+import org.junit.Assert;
 import pageobjects.SalesForceLoginPage;
 import reusable.BaseCode;
+import reusable.ReadExcel;
+
+import java.io.FileNotFoundException;
+import java.io.IOException;
 
 public class LoginSalesForceSteps extends BaseCode {
 
-
-    @Given("user navigates to salesforce url")
-    public void launchUrl(){
-        BaseCode.browserInvocation();
-
-    }
 
     @And("user click the login button")
     public void clickLoginButton(){
@@ -49,9 +47,9 @@ public class LoginSalesForceSteps extends BaseCode {
     }
 
     @When("user enters the username {string} and password {string}")
-    public void enterUserAndPassword(String userName, String password){
-        SalesForceLoginPage.enterUserName(userName);
-        SalesForceLoginPage.enterPassword(password);
+    public void enterUserAndPassword(String userName, String password) throws IOException {
+        SalesForceLoginPage.enterUserName(ReadExcel.getValueFromExcel("UserPassword", 0, 0));
+        SalesForceLoginPage.enterPassword(ReadExcel.getValueFromExcel("UserPassword", 0, 1));
 
     }
 
