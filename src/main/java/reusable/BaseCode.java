@@ -4,11 +4,12 @@ import org.openqa.selenium.InvalidArgumentException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.time.Duration;
 import java.util.Properties;
 
 public class BaseCode {
@@ -29,12 +30,15 @@ public class BaseCode {
         else if(prop.getProperty("browser").equalsIgnoreCase("edge")){
             driver = new EdgeDriver();
         }
+        else if(prop.getProperty("browser").equalsIgnoreCase("firefox")){
+            driver = new FirefoxDriver();
+        }
         else{
             throw new InvalidArgumentException("Invalid Browser name provided");
         }
         driver.manage().window().maximize();
-        driver.navigate().to(prop.getProperty("salesforceURL"));
-
+        driver.navigate().to(prop.getProperty("spiceURL"));
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
 
     }
 
