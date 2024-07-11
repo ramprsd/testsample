@@ -1,11 +1,14 @@
 package pageobjects;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
 import reusable.BaseCode;
 import org.junit.Assert;
+
+import java.util.Set;
 
 public class AmazonHomePage extends BaseCode {
 
@@ -61,16 +64,30 @@ public class AmazonHomePage extends BaseCode {
 
     public static void mouseOverClick(){
 
+
         a.clickAndHold(signinElement).build().perform();
-        driver.findElement(By.linkText("Baby Wishlist")).click();
+        driver.findElement(By.linkText("Baby Wishlist")).sendKeys(Keys.chord(Keys.CONTROL, Keys.ENTER));
         //driver.findElement(By.partialLinkText("Baby W")).click();
+
 
     }
 
     public static void verifyBabyWishlistPage(){
 
+        Set<String> windowProperty = driver.getWindowHandles();
+
+        for(String a:windowProperty){
+            driver.switchTo().window(a);
+            System.out.println(a);
+            if(driver.getTitle().equals("not equal")){
+                break;
+            }
+        }
+
         System.out.println(driver.getTitle());
         Assert.assertEquals("",driver.getTitle());
+
+        driver.switchTo().defaultContent();
 
     }
 

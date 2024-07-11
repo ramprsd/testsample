@@ -1,6 +1,5 @@
 package javabasics;
 
-import org.apache.commons.collections4.functors.CatchAndRethrowClosure;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -21,7 +20,7 @@ public class ExceptionExample extends BaseCode {
         try {
             driver.findElement(By.xpath("//div[@data-testid='home-page-flight-cta']")).click();
             driver.findElement(By.xpath("//div[text()='Modify Search']")).click();
-//            int c = Integer.parseInt(a);
+//            int c = Integer.parseInt(a);1
 //            System.out.println(b + c);
         }
         catch(NumberFormatException k){

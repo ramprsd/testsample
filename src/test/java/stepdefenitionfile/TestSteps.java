@@ -12,4 +12,10 @@ public class TestSteps {
 
     }
 
+    @Given("drag and drop the element")
+    public void dragAndDrop() {
+
+        PracticeConcepts.dragAndDrop();
+
+    }
 }

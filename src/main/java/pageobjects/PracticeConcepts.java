@@ -35,7 +35,7 @@ public class PracticeConcepts extends BaseCode {
 
         System.out.println(colOne);
 
-        List <String> colTwo = new ArrayList<String>();
+        List <String> colTwo = new ArrayList<>();
         for(int k = 1;k<eyTable.findElements(By.tagName("tr")).size();k++){
 
             colTwo.add(eyTable.findElements(By.tagName("tr")).get(k).getText());
@@ -59,7 +59,17 @@ public class PracticeConcepts extends BaseCode {
 
     public static String getValueFromTable(String txt){
 
-        return driver.findElement(By.xpath("//table[@class='wikitable']////td[notmalize-space(text()='"+txt+"')]")).getText();
+        return driver.findElement(By.xpath("//table[@class='wikitable']////td[normalize-space(text()='"+txt+"')]")).getText();
+
+    }
+
+    public static void dragAndDrop(){
+
+        driver.switchTo().frame(driver.findElement(By.className("demo-frame")));
+        WebElement source = driver.findElement(By.id("draggable"));
+        WebElement target = driver.findElement(By.id("droppable"));
+        a.dragAndDrop(source,target).build().perform();
+        driver.switchTo().defaultContent();
 
     }
 }
