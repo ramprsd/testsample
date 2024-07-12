@@ -10,7 +10,7 @@ import org.junit.runner.RunWith;
 @CucumberOptions(
         features = {"src/test/resources/featurefile"},
         glue = {"stepdefenitionfile"},
-        tags = "DragDrop",
+        tags = "mouse",
         plugin = {"pretty","html:target/test-output/report.html",
                   "json:target/test-output/report.json",
                   "junit:target/test-output/report.xml",
