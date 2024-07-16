@@ -2,10 +2,9 @@ package javabasics;
 
 public class ArrayExample {
 
+        int a =4;
     public static void main(String[] args) {
-
         int [] a ={1, 5, 7, 9, 6};
-
         for(int k:a){
             System.out.println(k);
         }

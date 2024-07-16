@@ -1,4 +1,4 @@
-Feature:
+Feature: Test Feature
 
   @table
   Scenario: user handles the table
@@ -7,4 +7,10 @@ Feature:
 
   @DragDrop
   Scenario: Drag and drop
-    Given drag and drop the element
+    Given select droppable
+    When drag and drop the element
+
+  @alert
+  Scenario: Alerts
+    Given select alert with ok and cancel
+    When click cancel button

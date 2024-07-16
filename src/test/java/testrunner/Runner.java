@@ -1,3 +1,4 @@
+
 package testrunner;
 
 import io.cucumber.junit.Cucumber;
@@ -10,11 +11,11 @@ import org.junit.runner.RunWith;
 @CucumberOptions(
         features = {"src/test/resources/featurefile"},
         glue = {"stepdefenitionfile"},
-        tags = "mouse",
+        tags = "@alert",
         plugin = {"pretty","html:target/test-output/report.html",
-                  "json:target/test-output/report.json",
-                  "junit:target/test-output/report.xml",
-                  "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"}
+                "json:target/test-output/report.json",
+                "junit:target/test-output/report.xml",
+                "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"}
 
 )
 

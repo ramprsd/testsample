@@ -16,6 +16,12 @@ import java.io.IOException;
 
 public class AmazonSteps{
 
+    AmazonHomePage a;
+    // Constructor is not used since we use static methods
+    public AmazonSteps(){
+        a = new AmazonHomePage();
+    }
+
 
     @Given("user should navigate to URL")
     public void launchUrl() throws IOException {

@@ -37,7 +37,7 @@ public class BaseCode {
             throw new InvalidArgumentException("Invalid Browser name provided");
         }
         driver.manage().window().maximize();
-        driver.navigate().to(prop.getProperty("amazonURL"));
+        driver.navigate().to(prop.getProperty("alertURL"));
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
 
     }

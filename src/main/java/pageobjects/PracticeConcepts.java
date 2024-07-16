@@ -1,5 +1,6 @@
 package pageobjects;
 
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -11,12 +12,13 @@ import java.util.List;
 public class PracticeConcepts extends BaseCode {
 
     private static Actions a= new Actions(driver);
-    private static WebElement eyTable = driver.findElement(By.cssSelector(".infobox.vcard"));// css selector
-    private static WebElement eyRevenue = driver.findElement(By.className("wikitable"));
+
 
     public static void iterateColumnValuesTest(){
 
        // int columnSize = eyTable.findElements(By.tagName("th")).size();
+        WebElement eyTable = driver.findElement(By.cssSelector(".infobox.vcard"));// css selector
+        WebElement eyRevenue = driver.findElement(By.className("wikitable"));
 
         List <WebElement> webEl = eyTable.findElements(By.tagName("th"));
 
@@ -63,13 +65,32 @@ public class PracticeConcepts extends BaseCode {
 
     }
 
+    public static void dropablePage(){
+        driver.findElement(By.xpath("//a[text()='Droppable']")).click();
+    }
+
     public static void dragAndDrop(){
 
-        driver.switchTo().frame(driver.findElement(By.className("demo-frame")));
-        WebElement source = driver.findElement(By.id("draggable"));
-        WebElement target = driver.findElement(By.id("droppable"));
+        driver.switchTo().frame(driver.findElement(By.xpath("//iframe[@class='demo-frame']")));
+        WebElement source = driver.findElement(By.xpath("//div[@id='draggable']"));
+        WebElement target = driver.findElement(By.xpath("//div[@id='droppable']"));
         a.dragAndDrop(source,target).build().perform();
         driver.switchTo().defaultContent();
 
+    }
+
+    public static void selectOKandCancel(){
+        driver.findElement(By.xpath("//a[text()='Alert with OK & Cancel ']")).click();
+    }
+    public static void selectButton(){
+        driver.findElement(By.xpath("//div[@id='CancelTab']/button")).click();
+    }
+
+    public static void cancelAlert(){
+        driver.switchTo().alert().getText();
+
+        driver.switchTo().alert().dismiss();
+        //driver.switchTo().alert().accept();
+        //Assert.assertEquals(""); -- use for Text Alert
     }
 }
